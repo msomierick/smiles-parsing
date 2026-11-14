@@ -1,11 +1,25 @@
 # smiles-parsing
 
-Companion code for the "Parsing SMILES" blog series. The series builds a SMILES parser in Python, one stage per post:
+Companion code for the [Parsing SMILES](https://labofcoding.com/posts/parsing-smiles-from-smiles-strings-to-molecular-graphs) blog series, which builds a SMILES parser in Python by hand, one stage per post. Each post ends at a git tag, so you can check out the code as it stands at the end of that post:
 
-1. Parsing SMILES: from SMILES strings to mol objects (background, no code)
-2. Lexical analysis
-3. Syntax analysis and the AST
-4. Semantic analysis with the visitor pattern
-5. Building the molecule
+- [Lexical analysis](https://labofcoding.com/posts/parsing-smiles-lexical-analysis): tag `part-2-lexer`
 
-Each post ends at a git tag, so you can check out the code as it stands at the end of that post.
+## Setup
+
+You need [git](https://git-scm.com/) and [uv](https://docs.astral.sh/uv/). Clone the repository and check out the tag for the post you are reading:
+
+```bash
+git clone https://github.com/msomierick/smiles-parsing.git
+cd smiles-parsing
+git checkout part-2-lexer
+```
+
+Then, from the repository root:
+
+```bash
+uv run python -m smiles_parsing "[13CH4]"   # print the tokens of a SMILES string
+uv run pytest                              # run the tests
+uv run ruff check                          # lint
+```
+
+uv creates the virtual environment and installs the dependencies the first time you run it.
